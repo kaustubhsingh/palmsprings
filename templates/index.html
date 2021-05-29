@@ -119,31 +119,15 @@ chart.data = [{
 }, {
   "country": "UK",
   "visits": 1122
-}, {
-  "country": "France",
-  "visits": 1114
-}, {
-  "country": "India",
-  "visits": 984
-}, {
-  "country": "Spain",
-  "visits": 711
-}, {
-  "country": "Netherlands",
-  "visits": 665
-}, {
-  "country": "Russia",
-  "visits": 580
-}, {
-  "country": "South Korea",
-  "visits": 443
-}, {
-  "country": "Canada",
-  "visits": 441
-}, {
-  "country": "Brazil",
-  "visits": 395
 }];
+
+            {% for row in data %}
+              
+                    {% for item in row %}
+                        <div class="col-md-3">{{ item }}</div>
+                    {% endfor %} 
+          
+            {% endfor %}
 
 // Create axes
 
