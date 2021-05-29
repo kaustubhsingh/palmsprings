@@ -95,16 +95,17 @@
 
     </main>
 
-    <div class="panel">
+    <div class="panel panel-default">
+      <div class="panel-body">
+            {% for row in data %}
+                <div class="row">
+                    {% for item in row %}
+                        <div class="col-md-3">{{ item }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
 
-{% for row in data %}
-    <div class="row">
-        {% for item in row %}
-            <div class="col-md-3">{{ item }}</div>
-        {% endfor %}
-    </div>
-{% endfor %}
-
+      </div>
     </div>
 
     <footer class="container">
