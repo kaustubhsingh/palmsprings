@@ -149,7 +149,7 @@ categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
 });
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.renderer.minGridDistance = 250;
+valueAxis.renderer.minGridDistance = 250000;
 
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
