@@ -131,23 +131,6 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 
 // Add data
-chart.data = [{
-  "country": "USA",
-  "visits": 2025
-}, {
-  "country": "China",
-  "visits": 1882
-}, {
-  "country": "Japan",
-  "visits": 1809
-}, {
-  "country": "Germany",
-  "visits": 1322
-}, {
-  "country": "UK",
-  "visits": 1122
-}];
-
 chart.data = {{ chart_data|safe }};
 
 // Create axes
@@ -182,8 +165,9 @@ columnTemplate.strokeOpacity = 1;
 </script>
 
 
-
-
+<h3>Budget allocation using the trained model</h3>
+<p> Input Budget </p>
+<p> Select Sellers and Networks to include in budget allocation</p>
 
 
 
