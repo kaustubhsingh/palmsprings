@@ -84,62 +84,96 @@
                     {% endfor %} 
                 </div>
             {% endfor %}
-        <!-- Create a div where the graph will take place -->
-        <div id="my_dataviz"></div>
+
       </div>
     </div>
 
 
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<div id="chartdiv"></div>
+
 <script>
 
-// set the dimensions and margins of the graph
-const margin = {top: 30, right: 30, bottom: 70, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
 
-// append the svg object to the body of the page
-const svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-// Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum_header.csv").then( function(data) {
+// Add data
+chart.data = [{
+  "country": "USA",
+  "visits": 2025
+}, {
+  "country": "China",
+  "visits": 1882
+}, {
+  "country": "Japan",
+  "visits": 1809
+}, {
+  "country": "Germany",
+  "visits": 1322
+}, {
+  "country": "UK",
+  "visits": 1122
+}, {
+  "country": "France",
+  "visits": 1114
+}, {
+  "country": "India",
+  "visits": 984
+}, {
+  "country": "Spain",
+  "visits": 711
+}, {
+  "country": "Netherlands",
+  "visits": 665
+}, {
+  "country": "Russia",
+  "visits": 580
+}, {
+  "country": "South Korea",
+  "visits": 443
+}, {
+  "country": "Canada",
+  "visits": 441
+}, {
+  "country": "Brazil",
+  "visits": 395
+}];
 
-// X axis
-const x = d3.scaleBand()
-  .range([ 0, width ])
-  .domain(data.map(d => d.Country))
-  .padding(0.2);
-svg.append("g")
-  .attr("transform", `translate(0, ${height})`)
-  .call(d3.axisBottom(x))
-  .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
+// Create axes
 
-// Add Y axis
-const y = d3.scaleLinear()
-  .domain([0, 13000])
-  .range([ height, 0]);
-svg.append("g")
-  .call(d3.axisLeft(y));
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "country";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 30;
 
-// Bars
-svg.selectAll("mybar")
-  .data(data)
-  .join("rect")
-    .attr("x", d => x(d.Country))
-    .attr("y", d => y(d.Value))
-    .attr("width", x.bandwidth())
-    .attr("height", d => height - y(d.Value))
-    .attr("fill", "#69b3a2")
+categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+  if (target.dataItem && target.dataItem.index & 2 == 2) {
+    return dy + 25;
+  }
+  return dy;
+});
 
-})
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.dataFields.valueY = "visits";
+series.dataFields.categoryX = "country";
+series.name = "Visits";
+series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+series.columns.template.fillOpacity = .8;
+
+var columnTemplate = series.columns.template;
+columnTemplate.strokeWidth = 2;
+columnTemplate.strokeOpacity = 1;
+
 </script>
-
 
 
 
