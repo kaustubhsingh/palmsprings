@@ -28,4 +28,4 @@ def index():
     fig_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 """
 
-    return render_template('index.html', data=data, plot=fig_json)
+    return render_template('index.html', data=data)
