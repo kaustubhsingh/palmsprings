@@ -95,13 +95,16 @@
 
     </main>
 
-    <div class="container table">
+    <div class="container">
 
-      <ul>
-        {% for n in data %}
-        <li>{{n}}</li>
+{% for row in data %}
+    <div class="row">
+        {% for item in row %}
+            <div class="col-md-3">{{ item }}</div>
         {% endfor %}
-      </ul>
+    </div>
+{% endfor %}
+
     </div>
 
     <footer class="container">
