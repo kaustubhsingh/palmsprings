@@ -4,9 +4,12 @@ from flask import render_template
 
 import pandas as pd
 import numpy as np
+
+"""
 from charts.bar_chart import plot_chart
 import plotly.graph_objs as go
 import plotly.offline as plt
+"""
 
 
 
