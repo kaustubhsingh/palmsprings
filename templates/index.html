@@ -75,20 +75,20 @@
 
     </main>
 
-    <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-body offset-md-1">
-            {% for row in data %}
-                <div class="row">
-                    {% for item in row %}
-                        <div class="col-md-3">{{ item }}</div>
-                    {% endfor %} 
-                </div>
-            {% endfor %}
+    <div class="row col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body offset-md-1">
+                    {% for row in data %}
+                        <div class="row">
+                            {% for item in row %}
+                                <div class="col-md-3">{{ item }}</div>
+                            {% endfor %} 
+                        </div>
+                    {% endfor %}
 
-      </div>
-      </div>
-      <div id="chartdiv" class="offset-md-6 col-md-6"></div>
+            </div>
+        </div>
+        <div id="chartdiv"></div>
     </div>
 
 
