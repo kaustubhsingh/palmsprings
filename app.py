@@ -6,4 +6,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+
+    data = [["x", "y"], [1, 2]]
+    return render_template('index.html', data)
