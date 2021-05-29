@@ -79,9 +79,9 @@
         <div class="panel panel-default">
             <div class="panel-body offset-md-1">
                     {% for row in data %}
-                        <div class="row column-md-3">
+                        <div class="row">
                             {% for item in row %}
-                                <div>{{ item }}</div>
+                                <div class="column-md-3">{{ item }}</div>
                             {% endfor %} 
                         </div>
                     {% endfor %}
