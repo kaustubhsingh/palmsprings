@@ -7,5 +7,7 @@ gunicorn
 
 # Flask Framework
 Flask
+pandas
+numpy
 
 
