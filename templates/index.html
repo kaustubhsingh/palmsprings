@@ -71,7 +71,7 @@
     </main>
 
     <div class="panel panel-default">
-      <div class="panel-body offset-md-3"">
+      <div class="panel-body">
             {% for row in data %}
                 <div class="row">
                     {% for item in row %}
@@ -84,7 +84,7 @@
     </div>
 
 <div>
-  <canvas id="myChart"></canvas>
+  <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -94,10 +94,10 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5, 2],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
