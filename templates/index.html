@@ -125,7 +125,15 @@ chart.data = [{
   "visits": 1122
 }];
 
-
+chart.data = [
+{{ for item in chart_data }}
+    {
+        "country": {{ item.week }},
+        "visits": {{ item.outcome }}
+    }
+    {{ if not loop.last }} , {{ endif }}
+{{ endfor }}
+];
 
 // Create axes
 
