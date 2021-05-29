@@ -77,11 +77,11 @@
 
     
         <div class="panel panel-default">
-            <div class="panel-body offset-md-1">
+            <div class="panel-body">
                     {% for row in data %}
-                        <div class="column-md-3">
+                        <div class="row">
                             {% for item in row %}
-                                <div>{{ item }}</div>
+                                <divcclass="column-md-3">{{ item }}</div>
                             {% endfor %} 
                         </div>
                     {% endfor %}
@@ -91,7 +91,7 @@
         
    
 
-    <div id="chartdiv" class="offset-md-1"></div>
+    <div id="chartdiv" class="offset-md-1 column-md-6"></div>
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
