@@ -71,11 +71,11 @@
     </main>
 
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-body offset-md-3"">
             {% for row in data %}
                 <div class="row">
                     {% for item in row %}
-                        <div class="offset-md-3 col-md-3">{{ item }}</div>
+                        <div class="col-md-3">{{ item }}</div>
                     {% endfor %}
                 </div>
             {% endfor %}
