@@ -25,4 +25,4 @@ def index():
         { "week" : "10-02-2021", "outcome" : 51315 }
     ]
 
-    return render_template('index.html', data=data, chart_data=chart_data)
+    return render_template('index.html', data=data, chart_data=json.loads(chart_data))
