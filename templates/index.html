@@ -125,13 +125,14 @@ chart.data = [{
   "visits": 1122
 }];
 
-chart.data = {% for chartx in chart_data %}
+chart.data = [{% for chartx in chart_data %}
                 {
                     "country": {{ chartx.week }},
                     "visits": {{ chartx.outcome }}
 
                 }
-            {% endfor %}
+                {% if not loop.last %} , {% endif %}
+            {% endfor %}];
 
 // Create axes
 
